@@ -7,19 +7,7 @@ import listOfCountries from '../src/listOfCountries.hbs'
 
 
 // ====================================================
-// used:    API Rest Countries v2
-//          lodash.debounce
-//          notiflix
-//          handlebars
 
-// Тобі потрібні тільки наступні властивості:
-
-// name.official - повна назва країни
-// capital - столиця
-// population - населення
-// flags.svg - посилання на зображення прапора
-// languages - масив мов
-// ===================================================
 const DEBOUNCE_DELAY = 300;
 
 const refs = getRefs();
