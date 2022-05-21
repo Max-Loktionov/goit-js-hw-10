@@ -3,8 +3,8 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import API from '../src/function'
 import getRefs from '../src/getRefs'
 import './css/styles.css';
-import listOfCountries from '../src/listOfCountries.hbs'
-
+import listOfCountries from '../src/templates/listOfCountries.hbs'
+import countryInfo from '../src/templates/countryInfo.hbs'
 
 // ====================================================
 
@@ -53,19 +53,8 @@ function renderCountryList(response) {
 };
 
 function renderCountryInfo({ flags, name, capital, population, languages }) {
-    const lang = Object.values(languages)
-    let markup = 
-    `<div class="card-info">
-        <div class="card-title"> 
-            <img src=" ${flags.svg} " alt=" " width=50 height=30/>
-            <p class="country-name">Name: <b><i>${name.common}</i></b> </p>
-        </div>
-        <p class="country-info">Official name: <b>${name.official}</b>  </p>
-        <p class="country-info">Capital: <b>${capital}</b> </p>
-        <p class="country-info">Population: <b>${population}</b> </p>
-        <p class="country-info"> Languages: <b> ${lang} </b> </p>
-    </div>`;
-    
+    const lang = Object.values(languages);
+    let markup = countryInfo({ flags, name, capital, population, lang });   
     refs.card.innerHTML = markup;
 }
 
